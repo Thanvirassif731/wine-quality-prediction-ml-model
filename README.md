@@ -51,24 +51,28 @@ The pipeline is split into distinct steps. You can run them sequentially from th
 
 **Step A: Download Data**  
 Fetches the `yasserh/wine-quality-dataset` using the Kaggle Hub API and saves it to `data/raw/`.
+
 ```bash
 python data/load_dataset.py
 ```
 
 **Step B: Preprocess Data**  
 Cleans the data, applies `StandardScaler`, splits it into 80/20 train/test sets, and saves a `scaler.joblib` artifact for future inference.
+
 ```bash
 python data/preprocess.py
 ```
 
 **Step C: Train the Model**  
 Trains a Random Forest Classifier on the processed data and saves the model to `model/model.joblib`.
+
 ```bash
 python model/train.py
 ```
 
 **Step D: Evaluate the Model**  
 Tests the model on the unseen test dataset and prints the Accuracy, Classification Report, and Confusion Matrix.
+
 ```bash
 python model/evaluate.py
 ```
@@ -80,6 +84,7 @@ Once the model and scaler are generated, you can launch the Flask API to serve r
 ```bash
 python app.py
 ```
+
 The server will start at `http://127.0.0.1:5000`.
 
 ### 4. Testing the API
@@ -87,6 +92,7 @@ The server will start at `http://127.0.0.1:5000`.
 With the Flask server running, open a new terminal and send a POST request with sample physicochemical properties.
 
 **cURL / bash:**
+
 ```bash
 curl -X POST http://127.0.0.1:5000/predict \
   -H "Content-Type: application/json" \
@@ -106,6 +112,7 @@ curl -X POST http://127.0.0.1:5000/predict \
 ```
 
 **Windows PowerShell:**
+
 ```powershell
 Invoke-RestMethod -Uri "http://127.0.0.1:5000/predict" `
   -Method Post `
@@ -114,14 +121,32 @@ Invoke-RestMethod -Uri "http://127.0.0.1:5000/predict" `
 ```
 
 **Expected Response:**
+
 ```json
 {
-  "predictions": [
-    5
-  ]
+  "predictions": [5]
 }
 ```
 
 ## Data Version Control (DVC)
 
 This project has dependencies to support Data Version Control (`dvc`). Once your pipeline is tested, you can initialize DVC to track the `data/` directory and large model artifacts, preventing them from bloating your git repository.
+
+## License
+
+This project is for learning and demo purposes.
+
+---
+
+## 🤝 Let's Connect!
+
+If you enjoy this course, consider:
+
+- Follow me on **[LinkedIn](https://www.linkedin.com/in/thanvir-assif-1b3435203/)**
+- Subscribe to my YouTube channels:
+  - [Thanvir Assif](https://www.youtube.com/@thanvirassif731)
+  - [Learn With Ash - Tamil](https://www.youtube.com/@learnwithashtamil7)
+
+- Book 1:1 guidance via **[Topmate](https://topmate.io/thanvir_assif/)**
+
+Stay tuned for more courses and tutorials!
