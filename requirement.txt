@@ -1,0 +1,7 @@
+kagglehub[pandas-datasets]
+pandas
+numpy
+dvc
+scikit-learn
+dvc[s3]
+flask
