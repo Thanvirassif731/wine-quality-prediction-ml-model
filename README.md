@@ -1,4 +1,4 @@
-# Wine Quality Prediction
+# Wine Quality Prediction 
 
 An end-to-end Machine Learning Operations (MLOps) pipeline for predicting wine quality based on physicochemical tests. This project features a complete ETL process, model training using a Random Forest Classifier, and a Flask API for serving predictions.
 
